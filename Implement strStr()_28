@@ -1,0 +1,24 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int count = 0;
+        if ( needle.length() == 0){ 
+            return count;
+        }
+        for ( int i = 0 ; i < haystack.length() - needle.length() + 1  ; i++ ) {
+            count = 0;
+            for ( int j = 0, k = i; j < needle.length(); j++ ) {
+                if ( haystack.charAt(k) == needle.charAt(j) ) {
+                    k++;
+                    count++;
+                }
+                else {
+                    break;
+                }
+                if ( count == needle.length() ) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+}
