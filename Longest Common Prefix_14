@@ -1,0 +1,28 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        StringBuilder sb = new StringBuilder();
+        int same_flag = 0;
+        char c ;
+        if ( strs.length > 0 ) {
+            for ( int i = 0; i < strs[0].length() ; i++ ) {
+                c = strs[0].charAt(i);
+                for ( int j = 0; j < strs.length ; j++ ) {
+                    if ( strs[j].length() > i && strs[j].charAt(i) == c ) {
+                        continue;
+                    }
+                    else {
+                        same_flag = 1;
+                        break;
+                    }
+                }
+                if( same_flag == 1 ){
+                    break;
+                }
+                else {
+                    sb.append(c);
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
