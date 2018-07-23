@@ -1,0 +1,30 @@
+class Solution {
+    public String countAndSay(int n) {
+        int count  = 1;
+        int ref_num = 0;
+        int cur_num = 0;
+        String s = "1";
+        StringBuilder sb = new StringBuilder();
+        while ( n > 1 ) {
+            for ( int i = 0 ; i < s.length() ; i++ ) {
+                ref_num = Integer.parseInt(String.valueOf(s.charAt(i)));
+                for ( int j = i+1 ; j < s.length(); j++ ) {
+                    cur_num = Integer.parseInt(String.valueOf(s.charAt(j)));
+                    if ( ref_num == cur_num ) {
+                        i++;
+                        count++;
+                    }
+                    else {
+                        break;
+                    }
+                }
+                sb.append(String.valueOf(count)+String.valueOf(ref_num));
+                count = 1;
+            }
+            s = sb.toString();
+            sb.setLength(0);
+            n--;
+        }
+        return s;
+    }
+}
