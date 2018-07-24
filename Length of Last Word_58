@@ -1,0 +1,22 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int new_count = 0, prev_count = 0;
+        for ( int i = 0 ; i < s.length() ; i++ ) {
+            if( s.charAt(i) == ' '  ) {
+                if( new_count != 0  ) {
+                    prev_count = new_count;    
+                }
+                new_count = 0;
+                continue;
+            }
+            else{
+                new_count++;
+            }
+        }
+        if ( new_count != 0 ){
+            return new_count;    
+        }
+        return prev_count;
+        
+    }
+}
